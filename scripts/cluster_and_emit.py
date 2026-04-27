@@ -1,27 +1,14 @@
 #!/usr/bin/env python3
-"""
-Cluster all sources at 100% identity and emit one bronze YAML per gene.
+"""Cluster sources by exact sequence identity (SHA256 hashing).
 
-Reads:
-  ingest/work/card_anchor.json
-  ingest/work/card_proteins.fa
-  ingest/work/card_nucleotide.fa
-  ingest/work/all_proteins.fa
-  ingest/work/all_nucleotide.fa
-
-Calls:
-  mmseqs easy-cluster (must be on PATH)
-
-Writes:
-  data/genes/ARO_*.yaml         (bronze records anchored to ARO)
-  data/genes/AMRXREF_*.yaml     (bronze records without ARO anchor)
+This replaces MMseqs2 because we only want strict 100% identity matches.
+Hash-based equivalence is faster, correct by construction, and avoids
+MMseqs2 index quirks for nucleotide databases.
 """
 from pathlib import Path
 import json
-import subprocess
-import shutil
+import hashlib
 import sys
-import re
 from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,43 +19,31 @@ GENES.mkdir(parents=True, exist_ok=True)
 DATE = "2026-04-27"
 
 
-def cat_fastas(out_path, *inputs):
-    with open(out_path, "w") as out:
-        for inp in inputs:
-            if inp.exists():
-                out.write(inp.read_text())
+def sha256_seq(seq):
+    """Hash an upper-cased sequence (case-insensitive equivalence)."""
+    return hashlib.sha256(seq.upper().strip().encode()).hexdigest()
 
 
-def run_mmseqs(input_fa, prefix):
-    """Cluster at 100% identity. Returns path to TSV mapping rep -> member."""
-    tmp = WORK / f"{prefix}_tmp"
-    tmp.mkdir(exist_ok=True)
-    out_prefix = WORK / prefix
-    cmd = [
-        "mmseqs", "easy-cluster",
-        str(input_fa), str(out_prefix), str(tmp),
-        "--min-seq-id", "1.0",
-        "-c", "1.0",
-        "--cov-mode", "0",
-        "--threads", "4",
-    ]
-    print(" ".join(cmd))
-    subprocess.run(cmd, check=True)
-    return Path(f"{out_prefix}_cluster.tsv")
-
-
-def parse_clusters(tsv):
-    """MMseqs2 _cluster.tsv: <representative>\\t<member>"""
-    clusters = defaultdict(set)
-    with open(tsv) as f:
+def parse_fasta(path):
+    """Yield (header, sequence) pairs."""
+    if not path.exists():
+        return
+    cur_h, cur_s = None, []
+    with open(path) as f:
         for line in f:
-            rep, mem = line.rstrip().split("\t")
-            clusters[rep].add(mem)
-    return clusters
+            line = line.rstrip()
+            if line.startswith(">"):
+                if cur_h is not None:
+                    yield cur_h, "".join(cur_s)
+                cur_h = line[1:]
+                cur_s = []
+            else:
+                cur_s.append(line)
+        if cur_h is not None:
+            yield cur_h, "".join(cur_s)
 
 
 def parse_member(m):
-    """'ARO:3000873' or 'AMRFinderPlus__blaTEM-1' or 'ResFinder__blaTEM-1_1_AY...' """
     if m.startswith("ARO:"):
         return ("CARD", m)
     if "__" in m:
@@ -78,22 +53,16 @@ def parse_member(m):
 
 
 def emit_yaml(record, path):
-    """Write a YAML record manually (no yaml dependency required for output)."""
     lines = []
     lines.append(f'aro_id: "{record["aro_id"]}"')
-    lines.append(f'canonical_name: {record["canonical_name"]}')
-    lines.append(f'gene_family: {record["gene_family"]}')
-    if record.get("preferred_label"):
-        lines.append(f'preferred_label: "{record["preferred_label"]}"')
+    cn = record["canonical_name"].replace('"', "'")
+    lines.append(f'canonical_name: "{cn}"')
+    gf = record["gene_family"].replace('"', "'")
+    lines.append(f'gene_family: "{gf}"')
     lines.append(f'variant_type: {record["variant_type"]}')
-
-    if record.get("drug_class_label"):
-        lines.append("drug_classes:")
-        lines.append(f'  - aro: "ARO:0000000"   # placeholder, refine via ARO drug branch')
-        lines.append(f'    label: {record["drug_class_label"]}')
-
     if record.get("mechanism"):
-        lines.append(f'mechanism: {record["mechanism"]}')
+        mc = record["mechanism"].replace('"', "'")
+        lines.append(f'mechanism: "{mc}"')
     if record.get("ncbi_protein"):
         lines.append("canonical_protein:")
         lines.append(f'  ncbi_protein: {record["ncbi_protein"]}')
@@ -104,69 +73,77 @@ def emit_yaml(record, path):
         lines.append(f'  ncbi_nuccore: {record["ncbi_nuccore"]}')
         if record.get("length_nt"):
             lines.append(f'  length_nt: {record["length_nt"]}')
-
     lines.append("")
     lines.append("mappings:")
     for m in record["mappings"]:
+        tid = m["target_id"].replace('"', "'")
+        ev = m["evidence_value"].replace('"', "'")
         lines.append(f'  - target_db: {m["target_db"]}')
-        lines.append(f'    target_id: "{m["target_id"]}"')
+        lines.append(f'    target_id: "{tid}"')
         lines.append(f'    relation: "{m["relation"]}"')
         lines.append(f'    level: {m["level"]}')
         lines.append(f'    evidence:')
         lines.append(f'      type: {m["evidence_type"]}')
-        lines.append(f'      value: "{m["evidence_value"]}"')
+        lines.append(f'      value: "{ev}"')
         lines.append(f'    quality: {m["quality"]}')
         lines.append(f'    date: "{m["date"]}"')
     path.write_text("\n".join(lines) + "\n")
 
 
-def safe_filename(s):
-    return re.sub(r"[^A-Za-z0-9_.-]", "_", s)
+def cluster_by_hash(*fastas):
+    """Build {sha256: set(headers)} across all input FASTAs."""
+    clusters = defaultdict(set)
+    total = 0
+    for fa in fastas:
+        for header, seq in parse_fasta(fa):
+            if not seq:
+                continue
+            h = sha256_seq(seq)
+            clusters[h].add(header)
+            total += 1
+    print(f"  {total} sequences -> {len(clusters)} unique sequence hashes")
+    return clusters
 
 
 def main():
-    if not shutil.which("mmseqs"):
-        print("ERROR: mmseqs not on PATH. Install with: conda install -c bioconda mmseqs2", file=sys.stderr)
-        sys.exit(1)
-
-    # Load CARD anchor lookup
     card = {r["aro_id"]: r for r in json.loads((WORK / "card_anchor.json").read_text())}
     print(f"Loaded {len(card)} CARD anchor records")
 
-    # Build merged FASTAs
-    print("Merging FASTAs...")
-    cat_fastas(WORK / "merged_proteins.fa",
-               WORK / "card_proteins.fa", WORK / "all_proteins.fa")
-    cat_fastas(WORK / "merged_nucleotide.fa",
-               WORK / "card_nucleotide.fa", WORK / "all_nucleotide.fa")
+    print("\nHash-clustering proteins...")
+    prot_clusters = cluster_by_hash(
+        WORK / "card_proteins.fa",
+        WORK / "all_proteins.fa",
+    )
 
-    # Run MMseqs2 clustering
-    print("Clustering proteins at 100% identity...")
-    prot_tsv = run_mmseqs(WORK / "merged_proteins.fa", "cluster_prot")
-    print("Clustering nucleotides at 100% identity...")
-    nucl_tsv = run_mmseqs(WORK / "merged_nucleotide.fa", "cluster_nucl")
+    print("\nHash-clustering nucleotides...")
+    nucl_clusters = cluster_by_hash(
+        WORK / "card_nucleotide.fa",
+        WORK / "all_nucleotide.fa",
+    )
 
-    prot_clusters = parse_clusters(prot_tsv)
-    nucl_clusters = parse_clusters(nucl_tsv)
-    print(f"Protein clusters: {len(prot_clusters)}")
-    print(f"Nucleotide clusters: {len(nucl_clusters)}")
+    def count_multi_db(clusters):
+        n = 0
+        for members in clusters.values():
+            dbs = {m.split("__")[0] if "__" in m else "CARD" for m in members}
+            if len(dbs) > 1:
+                n += 1
+        return n
 
-    # Build a unified ARO → mappings dict
+    print(f"\nProtein clusters spanning multiple DBs: {count_multi_db(prot_clusters)}")
+    print(f"Nucleotide clusters spanning multiple DBs: {count_multi_db(nucl_clusters)}")
+
     by_aro = defaultdict(lambda: {"protein": set(), "nucleotide": set()})
-
     for level, clusters in [("protein", prot_clusters), ("nucleotide", nucl_clusters)]:
-        for rep, members in clusters.items():
-            # find any ARO in this cluster
+        for members in clusters.values():
             aro_ids = [m for m in members if m.startswith("ARO:")]
             if not aro_ids:
-                continue  # skip clusters with no CARD anchor for now
+                continue
             anchor = aro_ids[0]
             for m in members:
                 if m == anchor:
                     continue
                 by_aro[anchor][level].add(m)
 
-    # Emit one YAML per ARO with cross-references
     written = 0
     for aro, levels in by_aro.items():
         meta = card.get(aro)
@@ -193,7 +170,7 @@ def main():
                     "relation": "skos:exactMatch",
                     "level": level,
                     "evidence_type": "sequence_identity_100",
-                    "evidence_value": f"100% identity at {level} level via MMseqs2",
+                    "evidence_value": f"SHA256 hash match at {level} level",
                     "quality": "bronze",
                     "date": DATE,
                 })
@@ -204,8 +181,6 @@ def main():
             "gene_family": meta["gene_family"] or "unspecified",
             "variant_type": meta["variant_type"],
             "mechanism": meta["mechanism"].split(";")[0].strip().replace(" ", "_") if meta["mechanism"] else None,
-            "drug_class_label": (meta["drug_classes_raw"].split(";")[0].strip()
-                                 if meta["drug_classes_raw"] else None),
             "ncbi_protein": meta.get("ncbi_protein"),
             "ncbi_nuccore": meta.get("ncbi_nuccore"),
             "length_aa": len(meta["protein_seq"]) if meta.get("protein_seq") else None,
@@ -217,8 +192,7 @@ def main():
         emit_yaml(record, GENES / fname)
         written += 1
 
-    print(f"Wrote {written} bronze YAML records to {GENES}")
-    print("Note: clusters without CARD anchor were skipped in v0.1.")
+    print(f"\nWrote {written} bronze YAML records to {GENES}")
 
 
 if __name__ == "__main__":

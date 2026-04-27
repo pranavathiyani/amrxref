@@ -216,8 +216,12 @@ let DATA = [];
 const DB_URLS = {
   CARD: id => `https://card.mcmaster.ca/aro/${id.split(':')[1]}`,
   AMRFinderPlus: id => `https://www.ncbi.nlm.nih.gov/pathogens/refgene/#${encodeURIComponent(id)}`,
-  ResFinder: id => `https://cge.food.dtu.dk/services/ResFinder/`,
-  MEGARes: id => `https://www.meglab.org/megares/`,
+  ResFinder: id => {
+    const parts = id.split('_');
+    const acc = parts[parts.length - 1];
+    return `https://www.ncbi.nlm.nih.gov/nuccore/${acc}`;
+  },
+  MEGARes: id => `https://db.meglab.org/`,
   NCBI: id => `https://www.ncbi.nlm.nih.gov/protein/${id}`,
   UniProt: id => `https://www.uniprot.org/uniprotkb/${id}/entry`,
 };
