@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "AMRxref: Cross-reference for antimicrobial resistance gene names"
+message: "If you use AMRxref, please cite this software."
+type: software
+authors:
+  - given-names: Pranavathiyani
+    family-names: Gnanasekar
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "SASTRA Deemed University"
+repository-code: "https://github.com/pranavathiyani/amrxref"
+url: "https://pranavathiyani.github.io/amrxref/"
+keywords:
+  - antimicrobial resistance
+  - AMR
+  - gene nomenclature
+  - crosswalk
+  - SKOS
+  - CARD
+  - AMRFinderPlus
+  - ResFinder
+  - MEGARes
+  - FAIR
+license: MIT
+version: 0.0.1
+date-released: 2026-04-27

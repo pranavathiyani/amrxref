@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amrxref"
+version = "0.0.1"
+description = "Cross-reference for antimicrobial resistance gene names across CARD, AMRFinderPlus, ResFinder, and MEGARes."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE-CODE" }
+authors = [{ name = "Pranavathiyani Gnanasekar" }]
+keywords = ["AMR", "antimicrobial resistance", "crosswalk", "SKOS", "FAIR", "bioinformatics"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Intended Audience :: Science/Research",
+]
+dependencies = [
+  "click>=8.0",
+  "pyyaml>=6.0",
+  "jsonschema>=4.0",
+]
+
+[project.urls]
+Homepage = "https://pranavathiyani.github.io/amrxref/"
+Repository = "https://github.com/pranavathiyani/amrxref"
+Issues = "https://github.com/pranavathiyani/amrxref/issues"
+
+[project.scripts]
+amrxref = "amrxref.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

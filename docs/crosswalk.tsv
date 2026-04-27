@@ -1,0 +1,2 @@
+aro_id	canonical_name	gene_family	variant_type	amrfinderplus	resfinder	megares	ncbi_protein	uniprot	drug_classes	quality
+ARO:3000873	blaTEM-1	TEM beta-lactamase	protein_coding	blaTEM-1	blaTEM-1_1		WP_000027057.1	P62593	penicillin	gold

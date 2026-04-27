@@ -1,0 +1,24 @@
+name: New mapping or correction
+description: Propose a new gene mapping or fix an existing one
+title: "[mapping] "
+labels: ["mapping"]
+body:
+  - type: input
+    id: gene
+    attributes:
+      label: Gene canonical name
+      placeholder: blaTEM-1
+    validations:
+      required: true
+  - type: input
+    id: aro
+    attributes:
+      label: ARO ID (if known)
+      placeholder: "ARO:3000873"
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Sequence identity, literature PMIDs, or curator note
+    validations:
+      required: true

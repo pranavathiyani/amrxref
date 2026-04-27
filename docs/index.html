@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMRxref — Cross-reference for AMR gene names</title>
+<meta name="description" content="Canonical cross-reference for antimicrobial resistance gene names. Bridges CARD, AMRFinderPlus, ResFinder, and MEGARes with SKOS-based mappings anchored to ARO.">
+<meta name="keywords" content="AMR, antimicrobial resistance, gene name, crosswalk, CARD, AMRFinderPlus, ResFinder, MEGARes, ARO, SKOS, FAIR, bioinformatics">
+<meta property="og:title" content="AMRxref">
+<meta property="og:description" content="Canonical cross-reference for antimicrobial resistance gene names across CARD, AMRFinderPlus, ResFinder, and MEGARes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pranavathiyani.github.io/amrxref/">
+<link rel="canonical" href="https://pranavathiyani.github.io/amrxref/">
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #1a2129;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --gold: #d4af37;
+    --silver: #b8b8b8;
+    --bronze: #cd7f32;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+  header .tagline {
+    color: var(--muted);
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  .search-box {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .search-box:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .stats {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .result {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .result-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .result h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--accent);
+  }
+  .aro-id {
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 0.95rem;
+  }
+  .quality {
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .quality.gold { background: var(--gold); color: #000; }
+  .quality.silver { background: var(--silver); color: #000; }
+  .quality.bronze { background: var(--bronze); color: #fff; }
+  .family {
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+  .mappings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .mapping {
+    background: var(--bg);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+  }
+  .mapping .db {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mapping .id {
+    font-family: monospace;
+    font-size: 0.95rem;
+  }
+  .mapping a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .mapping a:hover { color: var(--accent); }
+  .mapping .level {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .empty {
+    color: var(--muted);
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  .nav-links { margin-top: 0.5rem; }
+  .nav-links a { margin: 0 0.5rem; }
+  .download-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 1rem 0 2rem;
+    justify-content: center;
+  }
+  .download-row a {
+    background: var(--panel);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .download-row a:hover { border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AMRxref</h1>
+  <p class="tagline">Canonical cross-reference for antimicrobial resistance gene names</p>
+  <div class="nav-links">
+    <a href="https://github.com/pranavathiyani/amrxref">GitHub</a> ·
+    <a href="methods.html">Methods</a> ·
+    <a href="https://github.com/pranavathiyani/amrxref/blob/main/CONTRIBUTING.md">Contribute</a>
+  </div>
+</header>
+
+<main>
+  <input type="search" class="search-box" id="search"
+         placeholder="Search by gene name, ARO ID, or family (e.g. blaTEM-1, ARO:3000873, TEM)"
+         autocomplete="off" autofocus>
+
+  <div class="stats" id="stats">Loading...</div>
+
+  <div class="download-row">
+    <a href="crosswalk.tsv" download>TSV</a>
+    <a href="crosswalk.json" download>JSON</a>
+    <a href="crosswalk.jsonld" download>JSON-LD</a>
+    <a href="crosswalk.ttl" download>SKOS Turtle</a>
+  </div>
+
+  <div id="results"></div>
+</main>
+
+<footer>
+  <p><strong>AMRxref</strong> · Data: CC0 · Code: MIT · <a href="https://github.com/pranavathiyani/amrxref">Source on GitHub</a></p>
+  <p>Anchored to the <a href="https://card.mcmaster.ca/aro/">Antibiotic Resistance Ontology (ARO)</a>. Aligned with <a href="https://github.com/pha4ge/hAMRonization">PHA4GE / hAMRonization</a>.</p>
+</footer>
+
+<script>
+let DATA = [];
+
+const DB_URLS = {
+  CARD: id => `https://card.mcmaster.ca/aro/${id.split(':')[1]}`,
+  AMRFinderPlus: id => `https://www.ncbi.nlm.nih.gov/pathogens/refgene/#${encodeURIComponent(id)}`,
+  ResFinder: id => `https://cge.food.dtu.dk/services/ResFinder/`,
+  MEGARes: id => `https://www.meglab.org/megares/`,
+  NCBI: id => `https://www.ncbi.nlm.nih.gov/protein/${id}`,
+  UniProt: id => `https://www.uniprot.org/uniprotkb/${id}/entry`,
+};
+
+fetch('crosswalk.json')
+  .then(r => r.json())
+  .then(data => {
+    DATA = data;
+    document.getElementById('stats').textContent =
+      `${data.length} gene${data.length === 1 ? '' : 's'} mapped`;
+    render(data.slice(0, 10));
+  })
+  .catch(() => {
+    document.getElementById('stats').textContent =
+      'Could not load data. Run scripts/build_derived.py first.';
+  });
+
+function overallQuality(r) {
+  const qs = r.mappings.map(m => m.quality);
+  if (qs.every(q => q === 'gold')) return 'gold';
+  if (qs.includes('bronze')) return 'bronze';
+  return 'silver';
+}
+
+function render(records) {
+  const root = document.getElementById('results');
+  if (!records.length) {
+    root.innerHTML = '<div class="empty">No matches.</div>';
+    return;
+  }
+  root.innerHTML = records.map(r => {
+    const overallQ = overallQuality(r);
+    const mapHtml = r.mappings.map(m => {
+      const url = DB_URLS[m.target_db] ? DB_URLS[m.target_db](m.target_id) : '#';
+      return `<div class="mapping">
+        <div class="db">${m.target_db}</div>
+        <div class="id"><a href="${url}" target="_blank" rel="noopener">${m.target_id}</a></div>
+        <div class="level">${m.level || ''}</div>
+      </div>`;
+    }).join('');
+    return `<div class="result">
+      <div class="result-header">
+        <h3>${r.canonical_name}</h3>
+        <span class="aro-id">${r.aro_id}</span>
+        <span class="quality ${overallQ}">${overallQ}</span>
+      </div>
+      <div class="family">${r.gene_family} · ${r.variant_type}</div>
+      <div class="mappings">${mapHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) { render(DATA.slice(0, 10)); return; }
+  const matches = DATA.filter(r =>
+    r.canonical_name.toLowerCase().includes(q) ||
+    r.aro_id.toLowerCase().includes(q) ||
+    r.gene_family.toLowerCase().includes(q) ||
+    r.mappings.some(m => m.target_id.toLowerCase().includes(q))
+  );
+  render(matches);
+});
+</script>
+
+</body>
+</html>

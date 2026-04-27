@@ -1,0 +1,12 @@
+title: AMRxref
+description: >-
+  Canonical cross-reference for antimicrobial resistance gene names.
+  Bridges CARD, AMRFinderPlus, ResFinder, and MEGARes with SKOS-based mappings
+  anchored to the Antibiotic Resistance Ontology (ARO).
+url: "https://pranavathiyani.github.io"
+baseurl: "/amrxref"
+theme: jekyll-theme-minimal
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

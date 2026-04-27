@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methods — AMRxref</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; line-height: 1.6; background: #0f1419; color: #e6edf3; }
+  a { color: #58a6ff; }
+  h1, h2, h3 { letter-spacing: -0.01em; }
+  code { background: #1a2129; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+  pre { background: #1a2129; padding: 1rem; border-radius: 6px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #30363d; }
+  th { color: #8b949e; font-weight: 600; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+<p><a href="./">← Back to AMRxref</a></p>
+<h1>Methods</h1>
+
+<h2>Approach</h2>
+<p>AMRxref produces canonical cross-references between AMR gene databases by anchoring every record to an <a href="https://card.mcmaster.ca/aro/">ARO term</a> and emitting <a href="https://www.w3.org/2004/02/skos/">SKOS</a> mapping relations to entries in CARD, AMRFinderPlus, ResFinder, MEGARes, NCBI, and UniProt.</p>
+
+<h2>Pipeline</h2>
+<ol>
+  <li>Pull reference sequences from each source database at pinned versions (<code>data/sources.yaml</code>).</li>
+  <li>Cluster proteins at 100% identity with MMseqs2 to find equivalent entries.</li>
+  <li>Cluster nucleotide-only references (rRNA, ResFinder DNA) separately.</li>
+  <li>Anchor each cluster to an ARO term.</li>
+  <li>Emit one YAML record per gene with explicit evidence and provenance.</li>
+  <li>CI builds derived TSV / JSON / JSON-LD / SKOS Turtle on every push.</li>
+</ol>
+
+<h2>Mapping relations (SKOS)</h2>
+<table>
+  <tr><th>Relation</th><th>Meaning</th></tr>
+  <tr><td><code>skos:exactMatch</code></td><td>Identical sequences at the declared level (protein or nucleotide)</td></tr>
+  <tr><td><code>skos:closeMatch</code></td><td>Near-identical (allele variants, &gt;99% identity)</td></tr>
+  <tr><td><code>skos:broadMatch</code></td><td>Target is a parent family of the canonical gene</td></tr>
+  <tr><td><code>skos:narrowMatch</code></td><td>Target is a specific allele under a family</td></tr>
+  <tr><td><code>skos:relatedMatch</code></td><td>Mechanistically related but not equivalent</td></tr>
+</table>
+
+<h2>Quality tiers</h2>
+<table>
+  <tr><th>Tier</th><th>Criteria</th></tr>
+  <tr><td><strong>Gold</strong></td><td>Manually reviewed with two or more independent evidence types</td></tr>
+  <tr><td><strong>Silver</strong></td><td>Single strong evidence (100% sequence identity verified automatically)</td></tr>
+  <tr><td><strong>Bronze</strong></td><td>Automated only, awaiting human review</td></tr>
+</table>
+
+<h2>Variant types</h2>
+<p>Each record declares a <code>variant_type</code>:</p>
+<ul>
+  <li><code>protein_coding</code> — protein-level equivalence; nucleotide carried for ResFinder</li>
+  <li><code>rrna</code> — equivalence at nucleotide level (no protein)</li>
+  <li><code>promoter</code> — coordinate-anchored regulatory variant</li>
+  <li><code>regulatory_region</code> — broader regulatory element</li>
+</ul>
+
+<h2>FAIR</h2>
+<ul>
+  <li><strong>F</strong> Persistent IRIs at <code>https://w3id.org/amrxref/</code>, Zenodo DOI per release</li>
+  <li><strong>A</strong> HTTPS, content negotiation (HTML, JSON, JSON-LD, Turtle, TSV)</li>
+  <li><strong>I</strong> Anchored to ARO; SKOS for cross-database mappings; aligned with PHA4GE/hAMRonization</li>
+  <li><strong>R</strong> CC0 for data, MIT for code; per-mapping provenance; SemVer</li>
+</ul>
+
+<h2>Source databases</h2>
+<p>Versions pinned in <a href="https://github.com/pranavathiyani/amrxref/blob/main/data/sources.yaml"><code>data/sources.yaml</code></a>.</p>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix aro: <http://purl.obolibrary.org/obo/ARO_> .
+@prefix amrxref: <https://w3id.org/amrxref/> .
+
+amrxref:blaTEM-1 a skos:Concept ;
+    skos:prefLabel "blaTEM-1" ;
+    skos:exactMatch aro:3000873 ;
+    skos:exactMatch "AMRFinderPlus:blaTEM-1" ;
+    skos:exactMatch "ResFinder:blaTEM-1_1" ;
+    skos:exactMatch "NCBI:WP_000027057.1" ;
+    skos:exactMatch "UniProt:P62593" .
