@@ -11,3 +11,5 @@ dist/
 _site/
 .jekyll-cache/
 node_modules/
+ingest/sources/
+ingest/work/

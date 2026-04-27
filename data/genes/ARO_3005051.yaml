@@ -1,0 +1,31 @@
+aro_id: "ARO:3005051"
+canonical_name: "LpsB"
+gene_family: "Intrinsic peptide antibiotic resistant Lps"
+variant_type: protein_coding
+mechanism: "reduced_permeability_to_antibiotic"
+canonical_protein:
+  ncbi_protein: QFQ03949.1
+  length_aa: 366
+canonical_nucleotide:
+  ncbi_nuccore: CP045110.1
+  length_nt: 1101
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005051"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_8231"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

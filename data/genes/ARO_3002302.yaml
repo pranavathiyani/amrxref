@@ -1,0 +1,40 @@
+aro_id: "ARO:3002302"
+canonical_name: "VIM-32"
+gene_family: "VIM beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AEZ49857.1
+  length_aa: 266
+canonical_nucleotide:
+  ncbi_nuccore: JN676230.2
+  length_nt: 801
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002302"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_7749"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaVIM-32_1_JN676230"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

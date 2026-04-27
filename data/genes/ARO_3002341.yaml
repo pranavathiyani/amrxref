@@ -1,0 +1,40 @@
+aro_id: "ARO:3002341"
+canonical_name: "GES-12"
+gene_family: "GES beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CBG22732.1
+  length_aa: 287
+canonical_nucleotide:
+  ncbi_nuccore: FN554543.1
+  length_nt: 864
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002341"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3116"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaGES-12_1_FN554543"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

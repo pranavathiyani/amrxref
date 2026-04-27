@@ -1,0 +1,40 @@
+aro_id: "ARO:3003210"
+canonical_name: "FosA4"
+gene_family: "fosfomycin thiol transferase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: BAP18892.1
+  length_aa: 138
+canonical_nucleotide:
+  ncbi_nuccore: AB908992.1
+  length_nt: 417
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003210"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_2983"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "fosA4_1_AB908992"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

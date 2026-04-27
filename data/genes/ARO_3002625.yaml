@@ -1,0 +1,40 @@
+aro_id: "ARO:3002625"
+canonical_name: "ANT(4')-IIb"
+gene_family: "ANT(4')"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AAM76670.1
+  length_aa: 251
+canonical_nucleotide:
+  ncbi_nuccore: AY114142.1
+  length_nt: 756
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002625"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_982"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "ant(4')-IIb_1_AY114142"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

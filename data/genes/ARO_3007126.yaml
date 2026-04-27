@@ -1,0 +1,31 @@
+aro_id: "ARO:3007126"
+canonical_name: "ROB-12"
+gene_family: "ROB beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: QSX93374.1
+  length_aa: 310
+canonical_nucleotide:
+  ncbi_nuccore: MW735842.1
+  length_nt: 933
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3007126"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_8668"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,31 @@
+aro_id: "ARO:3000462"
+canonical_name: "mgtA"
+gene_family: "mgt macrolide glycotransferase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ABA28305.2
+  length_aa: 418
+canonical_nucleotide:
+  ncbi_nuccore: DQ185434.2
+  length_nt: 1257
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3000462"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3945"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

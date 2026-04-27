@@ -1,0 +1,31 @@
+aro_id: "ARO:3003718"
+canonical_name: "MSI-1"
+gene_family: "MSI beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AJP77057.1
+  length_aa: 341
+canonical_nucleotide:
+  ncbi_nuccore: KP109676.1
+  length_nt: 1026
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003718"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_4063"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

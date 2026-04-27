@@ -1,0 +1,40 @@
+aro_id: "ARO:3002686"
+canonical_name: "catP"
+gene_family: "chloramphenicol acetyltransferase (CAT)"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AAB51421.1
+  length_aa: 207
+canonical_nucleotide:
+  ncbi_nuccore: U15027.1
+  length_nt: 624
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002686"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1632"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "catP_1_U15027"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

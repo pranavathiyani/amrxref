@@ -1,0 +1,28 @@
+aro_id: "ARO:3004616"
+canonical_name: "Mycoplasma genitalium 23S rRNA mutations confers resistance to fluoroquinolone and macrolide antibiotics"
+gene_family: "23S rRNA with mutation conferring resistance to macrolide antibiotics"
+variant_type: rrna
+mechanism: "antibiotic_target_alteration"
+canonical_nucleotide:
+  ncbi_nuccore: L43967.2
+  length_nt: 2734
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004616"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3740"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

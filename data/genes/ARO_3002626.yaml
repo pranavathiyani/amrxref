@@ -1,0 +1,40 @@
+aro_id: "ARO:3002626"
+canonical_name: "ANT(6)-Ia"
+gene_family: "ANT(6)"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AHE40557.1
+  length_aa: 287
+canonical_nucleotide:
+  ncbi_nuccore: KF648874.1
+  length_nt: 864
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002626"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1000"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "ant(6)-Ia_2_KF421157"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

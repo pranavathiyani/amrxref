@@ -1,0 +1,40 @@
+aro_id: "ARO:3006226"
+canonical_name: "CepA-49"
+gene_family: "CepA beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: WP_008659027.1
+  length_aa: 300
+canonical_nucleotide:
+  ncbi_nuccore: NG_050387.1
+  length_nt: 903
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3006226"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1647"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "cepA-49_1_U05886"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

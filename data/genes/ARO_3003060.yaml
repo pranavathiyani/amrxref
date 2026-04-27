@@ -1,0 +1,31 @@
+aro_id: "ARO:3003060"
+canonical_name: "tsnR"
+gene_family: "non-erm 23S ribosomal RNA methyltransferase (A1067)"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: AAA99931.1
+  length_aa: 270
+canonical_nucleotide:
+  ncbi_nuccore: L39157.1
+  length_nt: 813
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003060"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_7285"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

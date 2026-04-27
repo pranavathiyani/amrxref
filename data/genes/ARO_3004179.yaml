@@ -1,0 +1,28 @@
+aro_id: "ARO:3004179"
+canonical_name: "Mycoplasma pneumoniae 23S rRNA mutation conferring resistance to erythromycin"
+gene_family: "23S rRNA with mutation conferring resistance to macrolide antibiotics"
+variant_type: rrna
+mechanism: "antibiotic_target_alteration"
+canonical_nucleotide:
+  ncbi_nuccore: NR_077056.1
+  length_nt: 2905
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004179"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3989"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

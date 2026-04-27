@@ -1,0 +1,40 @@
+aro_id: "ARO:3002837"
+canonical_name: "lnuC"
+gene_family: "lincosamide nucleotidyltransferase (LNU)"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AAY32951.1
+  length_aa: 164
+canonical_nucleotide:
+  ncbi_nuccore: AY928180.1
+  length_nt: 495
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002837"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3610"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "lnu(C)_1_AY928180"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

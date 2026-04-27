@@ -1,0 +1,31 @@
+aro_id: "ARO:3004764"
+canonical_name: "CBP-1"
+gene_family: "CBP beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ALF06101.1
+  length_aa: 308
+canonical_nucleotide:
+  ncbi_nuccore: KP718480.1
+  length_nt: 927
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004764"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1638"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,66 @@
+aro_id: "ARO:3000873"
+canonical_name: blaTEM-1
+gene_family: TEM beta-lactamase
+preferred_label: "TEM-1 beta-lactamase"
+variant_type: protein_coding
+drug_classes:
+  - aro: "ARO:3000007"
+    label: penicillin
+mechanism: antibiotic_inactivation
+mechanism_aro: "ARO:0001004"
+canonical_protein:
+  uniprot: P62593
+  ncbi_protein: WP_000027057.1
+  length_aa: 286
+canonical_nucleotide:
+  ncbi_nuccore: NG_050163.1
+  length_nt: 861
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3000873"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+
+  - target_db: AMRFinderPlus
+    target_id: blaTEM-1
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: sequence_identity_100
+      value: "286/286 aa, full-length match"
+    quality: gold
+    date: "2026-04-27"
+
+  - target_db: ResFinder
+    target_id: "blaTEM-1_1"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "861/861 nt"
+    quality: gold
+    date: "2026-04-27"
+
+  - target_db: NCBI
+    target_id: WP_000027057.1
+    relation: "skos:exactMatch"
+    level: protein
+    quality: gold
+    date: "2026-04-27"
+
+  - target_db: UniProt
+    target_id: P62593
+    relation: "skos:exactMatch"
+    level: protein
+    quality: gold
+    date: "2026-04-27"
+
+literature_pmids:
+  - 3023609
+  - 12760827

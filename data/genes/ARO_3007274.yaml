@@ -1,0 +1,31 @@
+aro_id: "ARO:3007274"
+canonical_name: "MCR-10.5"
+gene_family: "MCR phosphoethanolamine transferase"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: WP_242934127.1
+  length_aa: 539
+canonical_nucleotide:
+  ncbi_nuccore: OM638112.1
+  length_nt: 1620
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3007274"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "mcr-10.5_1_OM638112"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

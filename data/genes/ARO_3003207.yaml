@@ -1,0 +1,40 @@
+aro_id: "ARO:3003207"
+canonical_name: "FosK"
+gene_family: "fosfomycin thiol transferase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: BAO79518.1
+  length_aa: 132
+canonical_nucleotide:
+  ncbi_nuccore: AB917040.2
+  length_nt: 399
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003207"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3023"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "fosK_1_AB917040"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

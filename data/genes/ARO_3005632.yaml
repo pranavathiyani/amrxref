@@ -1,0 +1,40 @@
+aro_id: "ARO:3005632"
+canonical_name: "CTX-M-209"
+gene_family: "CTX-M beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: WP_109545061.1
+  length_aa: 291
+canonical_nucleotide:
+  ncbi_nuccore: NG_057475.1
+  length_nt: 876
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005632"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_2200"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaCTX-M-209_1_MH067959"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

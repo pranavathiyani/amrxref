@@ -1,0 +1,40 @@
+aro_id: "ARO:3003199"
+canonical_name: "AAC(6')-Iak"
+gene_family: "AAC(6')"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: BAO21229.1
+  length_aa: 153
+canonical_nucleotide:
+  ncbi_nuccore: AB894482.1
+  length_nt: 462
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003199"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_284"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aac(6')-Iak_1_AB894482"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

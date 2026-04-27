@@ -1,0 +1,40 @@
+aro_id: "ARO:3002265"
+canonical_name: "IND-9"
+gene_family: "IND beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ACZ65153.1
+  length_aa: 239
+canonical_nucleotide:
+  ncbi_nuccore: GU186045.1
+  length_nt: 720
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002265"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3416"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaIND-9_1_GU186045"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

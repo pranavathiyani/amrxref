@@ -1,0 +1,31 @@
+aro_id: "ARO:3005117"
+canonical_name: "AAC(6')-Ib-cr7"
+gene_family: "AAC(6');AAC(6')-Ib-cr"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: NON98701.1
+  length_aa: 184
+canonical_nucleotide:
+  ncbi_nuccore: JABGAB010000032.1
+  length_nt: 555
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005117"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_7874"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

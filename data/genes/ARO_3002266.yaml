@@ -1,0 +1,40 @@
+aro_id: "ARO:3002266"
+canonical_name: "IND-10"
+gene_family: "IND beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ADA13241.1
+  length_aa: 239
+canonical_nucleotide:
+  ncbi_nuccore: GU206353.1
+  length_nt: 720
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002266"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3417"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaIND-10_1_GU206353"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

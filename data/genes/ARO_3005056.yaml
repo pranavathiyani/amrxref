@@ -1,0 +1,40 @@
+aro_id: "ARO:3005056"
+canonical_name: "tet(X6)"
+gene_family: "tetracycline inactivation enzyme"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: QIM09823.1
+  length_aa: 378
+canonical_nucleotide:
+  ncbi_nuccore: MN507533.1
+  length_nt: 1137
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005056"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_8717"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "tet(X6)_1_MN507533"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

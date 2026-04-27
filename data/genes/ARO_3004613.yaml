@@ -1,0 +1,40 @@
+aro_id: "ARO:3004613"
+canonical_name: "tet(47)"
+gene_family: "tetracycline inactivation enzyme"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AKQ05891.1
+  length_aa: 415
+canonical_nucleotide:
+  ncbi_nuccore: KR857681.1
+  length_nt: 1248
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004613"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_7000"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "tet(47)_1_KR857681"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

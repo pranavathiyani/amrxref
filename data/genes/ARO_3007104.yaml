@@ -1,0 +1,40 @@
+aro_id: "ARO:3007104"
+canonical_name: "nimA"
+gene_family: "nitroimidazole reductase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CAA50581.1
+  length_aa: 176
+canonical_nucleotide:
+  ncbi_nuccore: X71444.1
+  length_nt: 531
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3007104"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_4179"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "nimA_1_X71444"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

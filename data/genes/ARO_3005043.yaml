@@ -1,0 +1,40 @@
+aro_id: "ARO:3005043"
+canonical_name: "cmlA9"
+gene_family: "major facilitator superfamily (MFS) antibiotic efflux pump"
+variant_type: protein_coding
+mechanism: "antibiotic_efflux"
+canonical_protein:
+  ncbi_protein: ABZ01840.1
+  length_aa: 404
+canonical_nucleotide:
+  ncbi_nuccore: AY963803.6
+  length_nt: 1215
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005043"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_2912"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "CmlA9_1_JN406319"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

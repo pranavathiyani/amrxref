@@ -1,0 +1,40 @@
+aro_id: "ARO:3003003"
+canonical_name: "CfxA3"
+gene_family: "CfxA beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AAL79549.2
+  length_aa: 321
+canonical_nucleotide:
+  ncbi_nuccore: AF472622.2
+  length_nt: 966
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003003"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1692"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "cfxA3_1_AF472622"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

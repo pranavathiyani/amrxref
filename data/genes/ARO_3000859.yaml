@@ -1,0 +1,40 @@
+aro_id: "ARO:3000859"
+canonical_name: "rmtA"
+gene_family: "16S rRNA methyltransferase (G1405)"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: BAC20579.1
+  length_aa: 251
+canonical_nucleotide:
+  ncbi_nuccore: AB083212.2
+  length_nt: 756
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3000859"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_6060"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "rmtA_1_AB120321"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

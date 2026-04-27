@@ -1,0 +1,40 @@
+aro_id: "ARO:3002599"
+canonical_name: "AAC(6')-30/AAC(6')-Ib' bifunctional protein"
+gene_family: "aminoglycoside bifunctional resistance protein"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CAE48335.2
+  length_aa: 328
+canonical_nucleotide:
+  ncbi_nuccore: AJ584652.2
+  length_nt: 987
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002599"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_302"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aac(6')-30-aac(6')-Ib'_1_AJ584652"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

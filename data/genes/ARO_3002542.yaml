@@ -1,0 +1,40 @@
+aro_id: "ARO:3002542"
+canonical_name: "AAC(3)-VIIIa"
+gene_family: "AAC(3)"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AAA26685.1
+  length_aa: 286
+canonical_nucleotide:
+  ncbi_nuccore: M55426.1
+  length_nt: 861
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002542"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_55"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aac(3)-VIIIa_1_M55426"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,40 @@
+aro_id: "ARO:3002674"
+canonical_name: "Clostridium butyricum catB"
+gene_family: "chloramphenicol acetyltransferase (CAT)"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AAA73865.1
+  length_aa: 219
+canonical_nucleotide:
+  ncbi_nuccore: M93113.1
+  length_nt: 660
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002674"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1556"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "catB_1_M93113"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

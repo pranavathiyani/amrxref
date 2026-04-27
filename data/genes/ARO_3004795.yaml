@@ -1,0 +1,31 @@
+aro_id: "ARO:3004795"
+canonical_name: "FPH-1"
+gene_family: "FPH beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AJI75632.1
+  length_aa: 288
+canonical_nucleotide:
+  ncbi_nuccore: CP010019.1
+  length_nt: 867
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004795"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3048"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

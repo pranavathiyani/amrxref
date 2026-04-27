@@ -1,0 +1,40 @@
+aro_id: "ARO:3002193"
+canonical_name: "IMP-2"
+gene_family: "IMP beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CAB94707.1
+  length_aa: 246
+canonical_nucleotide:
+  ncbi_nuccore: AJ243491.1
+  length_nt: 741
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002193"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3359"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaIMP-2_1_AJ243491"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

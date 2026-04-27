@@ -1,0 +1,40 @@
+aro_id: "ARO:3001014"
+canonical_name: "TEM-147"
+gene_family: "TEM beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ABB84515.1
+  length_aa: 286
+canonical_nucleotide:
+  ncbi_nuccore: DQ279850.1
+  length_nt: 861
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3001014"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_6782"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaTEM-147_1_DQ279850"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,40 @@
+aro_id: "ARO:3001498"
+canonical_name: "OXA-239"
+gene_family: "OXA beta-lactamase;OXA-23-like beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AFN65709.1
+  length_aa: 273
+canonical_nucleotide:
+  ncbi_nuccore: JQ837239.1
+  length_nt: 822
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3001498"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_5000"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaOXA-239_1_JQ837239"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

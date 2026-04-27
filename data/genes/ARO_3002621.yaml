@@ -1,0 +1,40 @@
+aro_id: "ARO:3002621"
+canonical_name: "aadA24"
+gene_family: "ANT(3'')"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ABG72894.1
+  length_aa: 259
+canonical_nucleotide:
+  ncbi_nuccore: DQ677333.1
+  length_nt: 780
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002621"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_943"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aadA24_1_DQ677333"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

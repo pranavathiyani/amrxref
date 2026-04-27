@@ -1,0 +1,31 @@
+aro_id: "ARO:3008440"
+canonical_name: "OXA-1019"
+gene_family: "OXA beta-lactamase;OXA-50-like beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: QYH55591.1
+  length_aa: 262
+canonical_nucleotide:
+  ncbi_nuccore: MZ672118.1
+  length_nt: 789
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3008440"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_8419"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

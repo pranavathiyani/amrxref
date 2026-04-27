@@ -1,0 +1,40 @@
+aro_id: "ARO:3002342"
+canonical_name: "GES-13"
+gene_family: "GES beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ACZ54536.1
+  length_aa: 287
+canonical_nucleotide:
+  ncbi_nuccore: GU169702.1
+  length_nt: 864
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002342"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3117"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaGES-13_1_GU169702"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

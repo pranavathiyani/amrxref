@@ -1,0 +1,31 @@
+aro_id: "ARO:3005538"
+canonical_name: "BlaB-25"
+gene_family: "BlaB beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: WP_078702010.1
+  length_aa: 249
+canonical_nucleotide:
+  ncbi_nuccore: NG_067214.1
+  length_nt: 750
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005538"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_7990"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

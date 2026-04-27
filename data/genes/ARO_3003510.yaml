@@ -1,0 +1,28 @@
+aro_id: "ARO:3003510"
+canonical_name: "Helicobacter pylori 16S rRNA mutation conferring resistance to tetracycline"
+gene_family: "16S rRNA with mutation conferring resistance to tetracycline derivatives"
+variant_type: rrna
+mechanism: "antibiotic_target_alteration"
+canonical_nucleotide:
+  ncbi_nuccore: CP003904.1
+  length_nt: 1501
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003510"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_6963"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

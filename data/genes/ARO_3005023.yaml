@@ -1,0 +1,31 @@
+aro_id: "ARO:3005023"
+canonical_name: "cfrE"
+gene_family: "Cfr 23S ribosomal RNA methyltransferase"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: RHO92765.1
+  length_aa: 344
+canonical_nucleotide:
+  ncbi_nuccore: QUDP01000003.1
+  length_nt: 1035
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005023"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "Cfr(E)_1_NG_070225"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

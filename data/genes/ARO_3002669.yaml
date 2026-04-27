@@ -1,0 +1,40 @@
+aro_id: "ARO:3002669"
+canonical_name: "APH(2'')-Ig"
+gene_family: "APH(2'')"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AGV10818.1
+  length_aa: 306
+canonical_nucleotide:
+  ncbi_nuccore: CP004067.1
+  length_nt: 921
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002669"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1018"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aph(2'')-Ig_1_CP004067"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

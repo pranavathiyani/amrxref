@@ -1,0 +1,49 @@
+aro_id: "ARO:3007232"
+canonical_name: "MCR-1.27"
+gene_family: "MCR phosphoethanolamine transferase"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: WP_163397051.1
+  length_aa: 541
+canonical_nucleotide:
+  ncbi_nuccore: JAAGSB010000042.1
+  length_nt: 1626
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3007232"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_8237"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "mcr-1.27_1_JAAGSB010000042"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "mcr-1.27_1_NG_068218"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

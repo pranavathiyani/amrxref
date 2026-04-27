@@ -1,0 +1,40 @@
+aro_id: "ARO:3002661"
+canonical_name: "APH(7'')-Ia"
+gene_family: "APH(7'')"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CAA27276.1
+  length_aa: 332
+canonical_nucleotide:
+  ncbi_nuccore: X03615.1
+  length_nt: 999
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002661"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1098"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aph(7'')-Ia_1_X03615"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

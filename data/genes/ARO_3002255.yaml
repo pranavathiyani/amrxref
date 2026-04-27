@@ -1,0 +1,40 @@
+aro_id: "ARO:3002255"
+canonical_name: "CARB-16"
+gene_family: "CARB beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CCW43444.1
+  length_aa: 298
+canonical_nucleotide:
+  ncbi_nuccore: HF953351.1
+  length_nt: 897
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002255"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_1541"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaCARB-16_1_HF953351"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

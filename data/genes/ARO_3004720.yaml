@@ -1,0 +1,31 @@
+aro_id: "ARO:3004720"
+canonical_name: "tet(X4)"
+gene_family: "tetracycline inactivation enzyme"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: QBQ69719.1
+  length_aa: 385
+canonical_nucleotide:
+  ncbi_nuccore: MK134376.1
+  length_nt: 1158
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004720"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "tet(X4)_1_MK134376"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

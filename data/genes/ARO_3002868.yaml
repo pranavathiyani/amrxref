@@ -1,0 +1,40 @@
+aro_id: "ARO:3002868"
+canonical_name: "dfrG"
+gene_family: "trimethoprim resistant dihydrofolate reductase dfr"
+variant_type: protein_coding
+mechanism: "antibiotic_target_replacement"
+canonical_protein:
+  ncbi_protein: BAE15963.1
+  length_aa: 165
+canonical_nucleotide:
+  ncbi_nuccore: AB205645.1
+  length_nt: 498
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002868"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_2579"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "dfrG_1_AB205645"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

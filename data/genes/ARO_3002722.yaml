@@ -1,0 +1,40 @@
+aro_id: "ARO:3002722"
+canonical_name: "QnrB8"
+gene_family: "quinolone resistance protein (qnr)"
+variant_type: protein_coding
+mechanism: "antibiotic_target_protection"
+canonical_protein:
+  ncbi_protein: ABW03157.2
+  length_aa: 214
+canonical_nucleotide:
+  ncbi_nuccore: EU043312.2
+  length_nt: 645
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002722"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_5940"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "qnrB8_1_EU043312"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

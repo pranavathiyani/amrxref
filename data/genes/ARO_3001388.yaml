@@ -1,0 +1,40 @@
+aro_id: "ARO:3001388"
+canonical_name: "TEM-211"
+gene_family: "TEM beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AHA80960.1
+  length_aa: 286
+canonical_nucleotide:
+  ncbi_nuccore: KF513179.1
+  length_nt: 861
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3001388"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_6832"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaTEM-211_1_KF513179"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

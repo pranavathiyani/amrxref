@@ -1,0 +1,40 @@
+aro_id: "ARO:3002454"
+canonical_name: "LEN-1"
+gene_family: "LEN beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CAA28198.1
+  length_aa: 279
+canonical_nucleotide:
+  ncbi_nuccore: X04515.1
+  length_nt: 840
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002454"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3573"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaLEN1_1_X04515"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

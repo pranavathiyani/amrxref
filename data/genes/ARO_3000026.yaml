@@ -1,0 +1,31 @@
+aro_id: "ARO:3000026"
+canonical_name: "mepA"
+gene_family: "multidrug and toxic compound extrusion (MATE) transporter"
+variant_type: protein_coding
+mechanism: "antibiotic_efflux"
+canonical_protein:
+  ncbi_protein: AAU95768.1
+  length_aa: 451
+canonical_nucleotide:
+  ncbi_nuccore: AY661734.1
+  length_nt: 1356
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3000026"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3833"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,40 @@
+aro_id: "ARO:3004638"
+canonical_name: "AAC(6')-I-48"
+gene_family: "AAC(6')"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: BAN78519.1
+  length_aa: 167
+canonical_nucleotide:
+  ncbi_nuccore: AB472901.2
+  length_nt: 504
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004638"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_282"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "aac(6')-Iag_1_AB472901"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

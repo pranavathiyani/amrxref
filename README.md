@@ -61,7 +61,9 @@ See CITATION.cff. Each release also has a Zenodo DOI.
 
 See CONTRIBUTING.md.
 
+
 ## Status
 
-v0.0 scaffold. v0.1 target: automated bronze-tier records covering all genes
-in the four source databases at pinned versions.
+**v0.1 (April 2026):** 4,778 records anchored to CARD ARO IDs, with sequence-identical (SHA256 hash) cross-references to ResFinder and MEGARes. Three-database coverage for 2,252 records.
+
+**v0.2 (planned):** AMRFinderPlus integration via NCBI protein accession matching. AMRFinderPlus and CARD store the same gene with slight sequence boundary differences (signal peptide, processing variants), so accession-based bridging is required for full coverage.

@@ -1,0 +1,40 @@
+aro_id: "ARO:3004662"
+canonical_name: "MCR-3.3"
+gene_family: "MCR phosphoethanolamine transferase"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: ASU10319.1
+  length_aa: 540
+canonical_nucleotide:
+  ncbi_nuccore: MF495680.1
+  length_nt: 1623
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004662"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3714"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "mcr-3.3_1_MF495680"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

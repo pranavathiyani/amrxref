@@ -1,0 +1,40 @@
+aro_id: "ARO:3003112"
+canonical_name: "lsaC"
+gene_family: "lsa-type ABC-F protein"
+variant_type: protein_coding
+mechanism: "antibiotic_target_protection"
+canonical_protein:
+  ncbi_protein: AEA37904.1
+  length_aa: 492
+canonical_nucleotide:
+  ncbi_nuccore: HM990671.1
+  length_nt: 1479
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003112"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3647"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "lsa(C)_1_HM990671"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

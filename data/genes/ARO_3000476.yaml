@@ -1,0 +1,40 @@
+aro_id: "ARO:3000476"
+canonical_name: "tet(31)"
+gene_family: "major facilitator superfamily (MFS) antibiotic efflux pump"
+variant_type: protein_coding
+mechanism: "antibiotic_efflux"
+canonical_protein:
+  ncbi_protein: CAC80727.1
+  length_aa: 410
+canonical_nucleotide:
+  ncbi_nuccore: AJ250203.1
+  length_nt: 1233
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3000476"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_6967"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "tet(31)_2_AJ250203"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,31 @@
+aro_id: "ARO:3005986"
+canonical_name: "OXA-783"
+gene_family: "OXA beta-lactamase;OXA-184-like beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: WP_128268278.1
+  length_aa: 249
+canonical_nucleotide:
+  ncbi_nuccore: NG_063884.1
+  length_nt: 750
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3005986"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_4659"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

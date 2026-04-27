@@ -1,0 +1,40 @@
+aro_id: "ARO:3004678"
+canonical_name: "rmtE"
+gene_family: "16S rRNA methyltransferase (G1405)"
+variant_type: protein_coding
+mechanism: "antibiotic_target_alteration"
+canonical_protein:
+  ncbi_protein: ADA63498.1
+  length_aa: 273
+canonical_nucleotide:
+  ncbi_nuccore: GU201947.1
+  length_nt: 822
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004678"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_6070"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "rmtE_1_GU201947"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,28 @@
+aro_id: "ARO:3003978"
+canonical_name: "Chlamydomonas reinhardtii 16S rRNA (rrnS) mutation conferring resistance to streptomycin"
+gene_family: "16s rRNA with mutation conferring resistance to aminoglycoside antibiotics"
+variant_type: rrna
+mechanism: "antibiotic_target_alteration"
+canonical_nucleotide:
+  ncbi_nuccore: NC_005353.1
+  length_nt: 1474
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003978"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_8"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

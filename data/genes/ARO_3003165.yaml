@@ -1,0 +1,40 @@
+aro_id: "ARO:3003165"
+canonical_name: "CTX-M-157"
+gene_family: "CTX-M beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: AIS67613.1
+  length_aa: 291
+canonical_nucleotide:
+  ncbi_nuccore: KM211510.1
+  length_nt: 876
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3003165"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_2359"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaCTX-M-157_1_KM211510"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,40 @@
+aro_id: "ARO:3002836"
+canonical_name: "lnuB"
+gene_family: "lincosamide nucleotidyltransferase (LNU)"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CAB41414.1
+  length_aa: 267
+canonical_nucleotide:
+  ncbi_nuccore: AJ238249.1
+  length_nt: 804
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002836"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3609"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "lnu(B)_1_AJ238249"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

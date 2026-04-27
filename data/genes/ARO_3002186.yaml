@@ -1,0 +1,40 @@
+aro_id: "ARO:3002186"
+canonical_name: "MOX-3"
+gene_family: "MOX beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: ACA30419.1
+  length_aa: 382
+canonical_nucleotide:
+  ncbi_nuccore: EU515248.1
+  length_nt: 1149
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3002186"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_4018"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaMOX-3_1_EU515248"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

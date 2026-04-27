@@ -1,0 +1,40 @@
+aro_id: "ARO:3001673"
+canonical_name: "OXA-248"
+gene_family: "OXA beta-lactamase;OXA-51-like beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: CCJ32596.1
+  length_aa: 274
+canonical_nucleotide:
+  ncbi_nuccore: HE963769.1
+  length_nt: 825
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3001673"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_4936"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
+  - target_db: ResFinder
+    target_id: "blaOXA-248_1_HE963769"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

@@ -1,0 +1,28 @@
+aro_id: "ARO:3004174"
+canonical_name: "Chlamydia trachomatis 23S rRNA with mutation conferring resistance to macrolide antibiotics"
+gene_family: "23S rRNA with mutation conferring resistance to macrolide antibiotics"
+variant_type: rrna
+mechanism: "antibiotic_target_alteration"
+canonical_nucleotide:
+  ncbi_nuccore: NR_076160.1
+  length_nt: 2940
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004174"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3986"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

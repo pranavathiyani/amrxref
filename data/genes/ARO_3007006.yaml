@@ -1,0 +1,31 @@
+aro_id: "ARO:3007006"
+canonical_name: "ZOG-1"
+gene_family: "ZOG beta-lactamase"
+variant_type: protein_coding
+mechanism: "antibiotic_inactivation"
+canonical_protein:
+  ncbi_protein: WP_013992183.1
+  length_aa: 247
+canonical_nucleotide:
+  ncbi_nuccore: NG_057434.1
+  length_nt: 744
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3007006"
+    relation: "skos:exactMatch"
+    level: protein
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_7860"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"

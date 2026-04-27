@@ -1,0 +1,28 @@
+aro_id: "ARO:3004150"
+canonical_name: "Escherichia coli 23S rRNA with mutation conferring resistance to chloramphenicol"
+gene_family: "23S rRNA with mutation conferring resistance to phenicol antibiotics"
+variant_type: rrna
+mechanism: "antibiotic_target_alteration"
+canonical_nucleotide:
+  ncbi_nuccore: AE014075.1
+  length_nt: 2904
+
+mappings:
+  - target_db: CARD
+    target_id: "ARO:3004150"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: ontology_anchor
+      value: "Canonical ARO term"
+    quality: gold
+    date: "2026-04-27"
+  - target_db: MEGARes
+    target_id: "MEG_3977"
+    relation: "skos:exactMatch"
+    level: nucleotide
+    evidence:
+      type: sequence_identity_100
+      value: "SHA256 hash match at nucleotide level"
+    quality: bronze
+    date: "2026-04-27"
