@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coverage — AMRxref</title>
+<meta name="description" content="What AMRxref covers, what it doesn't, and why. Honest scope and roadmap for the antimicrobial resistance gene name crosswalk.">
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #1a2129;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --gold: #d4af37;
+    --silver: #b8b8b8;
+    --bronze: #cd7f32;
+    --border: #30363d;
+    --warn: #f0883e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+  }
+  header { border-bottom: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+  header h1 { margin: 0 0 0.5rem; font-size: 2.2rem; letter-spacing: -0.02em; }
+  header .tagline { color: var(--muted); margin: 0; }
+  .nav-links { margin-top: 0.75rem; }
+  .nav-links a { color: var(--accent); text-decoration: none; margin: 0 0.5rem; }
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+  h2 { margin-top: 2.5rem; letter-spacing: -0.01em; }
+  h3 { color: var(--muted); font-weight: 500; margin-top: 1.5rem; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .stat {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .stat .num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+  .stat .label { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th, td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: monospace; }
+  .bar {
+    display: inline-block;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+  }
+  .gap {
+    background: var(--panel);
+    border-left: 4px solid var(--warn);
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+  .gap h3 { color: var(--warn); margin-top: 0; }
+  .gap p { margin: 0.5rem 0 0; }
+  code {
+    background: var(--panel);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem; text-align: center;
+    color: var(--muted); font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Coverage</h1>
+  <p class="tagline">What AMRxref maps, what it misses, and why.</p>
+  <div class="nav-links">
+    <a href="./">Home</a> ·
+    <a href="methods.html">Methods</a> ·
+    <a href="https://github.com/pranavathiyani/amrxref">GitHub</a>
+  </div>
+</header>
+
+<main>
+
+<p>AMRxref v0.1 is a sequence-identity crosswalk anchored to the
+<a href="https://card.mcmaster.ca/aro/">Antibiotic Resistance Ontology (ARO)</a>.
+Every record starts from a CARD entry and adds cross-references to the other databases
+where the protein or nucleotide sequence is byte-for-byte identical (verified by
+SHA256 hashing). Below is exactly what shipped, with the gaps stated up front.</p>
+
+<h2>Headline numbers</h2>
+
+<div class="stats-grid" id="headline"></div>
+
+<h2>Database coverage</h2>
+
+<p>Each AMRxref record is anchored to one CARD ARO term. The numbers below show how many
+records also cross-reference each of the other databases.</p>
+
+<table id="db-table">
+  <thead>
+    <tr><th>Database</th><th class="num">Records</th><th class="num">Coverage</th><th></th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<h2>Coverage combinations</h2>
+
+<p>Which databases co-occur in a single record. This is the most useful number for surveillance
+labs running multiple AMR detection tools — the higher the multi-database row, the more
+records have a confirmed cross-tool identity.</p>
+
+<table id="combo-table">
+  <thead>
+    <tr><th>Combination</th><th class="num">Records</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<h2>Variant types</h2>
+
+<p>AMRxref handles both protein-coding genes and ribosomal RNA variants. Other variant
+classes (promoters, regulatory regions) are in scope but not yet populated.</p>
+
+<table id="variant-table">
+  <thead>
+    <tr><th>Variant type</th><th class="num">Records</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<h2>Quality tiers</h2>
+
+<p>v0.1 ships entirely as <strong>bronze tier</strong> — automated cross-references with
+sequence-identity evidence but no manual review. Silver and gold promotion happens in v0.3+
+prioritized by clinical importance (carbapenemases, ESBLs, colistin resistance, WHO/CDC
+priority pathogen genes).</p>
+
+<table id="quality-table">
+  <thead>
+    <tr><th>Tier</th><th class="num">Records</th><th>Criteria</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<h2>Top gene families</h2>
+
+<p>The 20 most common AMR gene families in the dataset, by number of records.</p>
+
+<table id="family-table">
+  <thead>
+    <tr><th>Gene family</th><th class="num">Records</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<h2>Known gaps</h2>
+
+<div class="gap">
+  <h3>AMRFinderPlus integration (v0.2)</h3>
+  <p>v0.1 finds zero CARD ↔ AMRFinderPlus exact-sequence matches even though both databases
+  cover the same genes. The cause is biological: AMRFinderPlus stores mature processed
+  proteins (signal peptide cleaved) while CARD often stores the precursor. Same gene,
+  different bytes, no SHA256 match.</p>
+  <p>v0.2 will bridge them via NCBI protein accession (RefSeq <code>WP_*</code>), which both
+  databases store and which identifies the same biological entity by definition. This is
+  expected to unlock cross-references for ~6,000 AMRFinderPlus alleles.</p>
+</div>
+
+<div class="gap">
+  <h3>Manual gold-tier curation (v0.3+)</h3>
+  <p>All 4,778 records are bronze. Gold-tier curation requires two independent evidence types
+  per mapping (sequence + literature, or sequence + curator endorsement) and human review.
+  Initial gold focus: clinically priority β-lactamases (TEM, SHV, CTX-M, KPC, NDM, OXA),
+  carbapenemases, mobile colistin resistance (<code>mcr</code>), and WHO/CDC priority
+  pathogen AMR genes.</p>
+</div>
+
+<div class="gap">
+  <h3>Mycobacterium tuberculosis (sibling project)</h3>
+  <p>MTB resistance is dominated by point mutations in core housekeeping genes
+  (<code>rpoB</code>, <code>katG</code>, <code>pncA</code>, <code>gyrA</code>) and the relevant
+  reference resources are TBProfiler, the WHO Catalogue of mutations, and Mykrobe — not the
+  four databases AMRxref bridges. A partial MTB slice from CARD is in v0.1, but full TB
+  harmonization is a separate project: AMRxref-MTB.</p>
+</div>
+
+<div class="gap">
+  <h3>Promoter and regulatory variants (v0.3+)</h3>
+  <p>The schema supports <code>variant_type: promoter</code> and <code>regulatory_region</code>
+  but v0.1 doesn't populate them. Promoter mutations (<code>ampC</code>, <code>mgrB</code>,
+  <code>pmrA/B</code>) confer real resistance via expression changes and currently land in
+  the <code>regulatory_region</code> bucket as a fallback. v0.3 will resolve them properly.</p>
+</div>
+
+<div class="gap">
+  <h3>UniProt and AlphaFold cross-links (v0.2)</h3>
+  <p>The schema reserves a <code>canonical_protein.uniprot</code> field but v0.1 doesn't
+  populate it. v0.2 will run NCBI accession ↔ UniProt lookups via the UniProt ID-mapping
+  API, which then unlocks AlphaFold DB links automatically (AFDB is keyed on UniProt).</p>
+</div>
+
+</main>
+
+<footer>
+  <p><strong>AMRxref</strong> · Data: CC0 · Code: MIT · <a href="https://github.com/pranavathiyani/amrxref">Source</a></p>
+</footer>
+
+<script>
+fetch('stats.json').then(r => r.json()).then(s => {
+  // Headline cards
+  const total = s.total_records;
+  const headline = document.getElementById('headline');
+  const cards = [
+    { num: total.toLocaleString(), label: 'Records anchored to ARO' },
+    { num: (s.records_with_db.MEGARes || 0).toLocaleString(), label: 'with MEGARes mapping' },
+    { num: (s.records_with_db.ResFinder || 0).toLocaleString(), label: 'with ResFinder mapping' },
+    { num: (s.variant_types.rrna || 0).toLocaleString(), label: 'rRNA variants' },
+  ];
+  headline.innerHTML = cards.map(c =>
+    `<div class="stat"><div class="num">${c.num}</div><div class="label">${c.label}</div></div>`
+  ).join('');
+
+  // Per-database table
+  const dbBody = document.querySelector('#db-table tbody');
+  const dbOrder = ['CARD', 'MEGARes', 'ResFinder', 'AMRFinderPlus', 'NCBI', 'UniProt'];
+  dbBody.innerHTML = dbOrder.map(db => {
+    const n = s.records_with_db[db] || 0;
+    const pct = total ? (100 * n / total).toFixed(1) : 0;
+    const barW = total ? Math.round(200 * n / total) : 0;
+    return `<tr>
+      <td>${db}</td>
+      <td class="num">${n.toLocaleString()}</td>
+      <td class="num">${pct}%</td>
+      <td><span class="bar" style="width:${barW}px"></span></td>
+    </tr>`;
+  }).join('');
+
+  // Coverage combos
+  const comboBody = document.querySelector('#combo-table tbody');
+  comboBody.innerHTML = s.coverage_combos.map(c =>
+    `<tr><td>${c.combo}</td><td class="num">${c.count.toLocaleString()}</td></tr>`
+  ).join('');
+
+  // Variants
+  const variantBody = document.querySelector('#variant-table tbody');
+  variantBody.innerHTML = Object.entries(s.variant_types).map(([k, v]) =>
+    `<tr><td>${k}</td><td class="num">${v.toLocaleString()}</td></tr>`
+  ).join('');
+
+  // Qualities
+  const criteriaMap = {
+    gold: 'Manually reviewed; two or more independent evidence types',
+    silver: 'Single strong evidence (100% sequence identity); not yet reviewed',
+    bronze: 'Automated only; awaiting human review',
+  };
+  const qBody = document.querySelector('#quality-table tbody');
+  qBody.innerHTML = ['gold', 'silver', 'bronze'].map(k => {
+    const v = s.qualities[k] || 0;
+    return `<tr><td>${k}</td><td class="num">${v.toLocaleString()}</td><td>${criteriaMap[k]}</td></tr>`;
+  }).join('');
+
+  // Top families
+  const famBody = document.querySelector('#family-table tbody');
+  famBody.innerHTML = s.top_gene_families.map(f =>
+    `<tr><td>${f.family}</td><td class="num">${f.count.toLocaleString()}</td></tr>`
+  ).join('');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{
+  "total_records": 4778,
+  "coverage_combos": [
+    {
+      "combo": "CARD + MEGARes",
+      "count": 2482
+    },
+    {
+      "combo": "CARD + MEGARes + ResFinder",
+      "count": 2252
+    },
+    {
+      "combo": "CARD + ResFinder",
+      "count": 44
+    }
+  ],
+  "variant_types": {
+    "protein_coding": 4733,
+    "rrna": 45
+  },
+  "qualities": {
+    "bronze": 4778
+  },
+  "top_gene_families": [
+    {
+      "family": "PDC beta-lactamase",
+      "count": 475
+    },
+    {
+      "family": "OXA beta-lactamase;OXA-51-like beta-lactamase",
+      "count": 327
+    },
+    {
+      "family": "CTX-M beta-lactamase",
+      "count": 230
+    },
+    {
+      "family": "SHV beta-lactamase",
+      "count": 195
+    },
+    {
+      "family": "TEM beta-lactamase",
+      "count": 194
+    },
+    {
+      "family": "ADC beta-lactamases pending classification for carbapenemase activity",
+      "count": 179
+    },
+    {
+      "family": "CMY beta-lactamase",
+      "count": 171
+    },
+    {
+      "family": "major facilitator superfamily (MFS) antibiotic efflux pump",
+      "count": 107
+    },
+    {
+      "family": "quinolone resistance protein (qnr)",
+      "count": 106
+    },
+    {
+      "family": "resistance-nodulation-cell division (RND) antibiotic efflux pump",
+      "count": 100
+    },
+    {
+      "family": "MCR phosphoethanolamine transferase",
+      "count": 96
+    },
+    {
+      "family": "ACT beta-lactamase",
+      "count": 83
+    },
+    {
+      "family": "IMP beta-lactamase",
+      "count": 83
+    },
+    {
+      "family": "KPC beta-lactamase",
+      "count": 81
+    },
+    {
+      "family": "VIM beta-lactamase",
+      "count": 71
+    },
+    {
+      "family": "OXA beta-lactamase;OXA-213-like beta-lactamase",
+      "count": 70
+    },
+    {
+      "family": "AAC(6')",
+      "count": 56
+    },
+    {
+      "family": "trimethoprim resistant dihydrofolate reductase dfr",
+      "count": 55
+    },
+    {
+      "family": "OXA beta-lactamase",
+      "count": 52
+    },
+    {
+      "family": "CARB beta-lactamase",
+      "count": 51
+    }
+  ],
+  "total_mappings_per_db": {
+    "CARD": 4778,
+    "MEGARes": 4734,
+    "ResFinder": 2301
+  },
+  "records_with_db": {
+    "CARD": 4778,
+    "MEGARes": 4734,
+    "ResFinder": 2296
+  }
+}

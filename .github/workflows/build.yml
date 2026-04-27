@@ -20,6 +20,7 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml jsonschema
       - run: python scripts/build_derived.py
+      - run: python scripts/generate_stats.py
       - run: cp derived/crosswalk.* docs/
       - uses: actions/upload-pages-artifact@v3
         with:
